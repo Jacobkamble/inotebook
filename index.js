@@ -6,7 +6,7 @@ const dotenv =require('dotenv');
 
 dotenv.config({path:'./config.env'})
 
-connectToMongo();
+// connectToMongo();
 
 const app = express();
 
@@ -42,6 +42,12 @@ app.get("*", (req, res) => {
 //   })
 // }
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
+// });
+
+connectDB().then(() => {
+  app.listen(port, () => {
+      console.log("listening for requests",port);
+  })
+})
