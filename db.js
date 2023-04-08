@@ -5,10 +5,10 @@ dotenv.config({path:'./config.env'})
 
 // const mongoURI = `mongodb://localhost:27017/notebook?directConnection=true&tls=false&readPreference=primary`;
 
-// const mongoURI=`mongodb+srv://jacobkamble:Jacob1234@cluster0.1zytsba.mongodb.net/notebook`
+const mongoURI=`mongodb+srv://jacobkamble:Jacob1234@cluster0.1zytsba.mongodb.net/notebook`
 
 // ?retryWrites=true&w=majority` 
-const mongoURI = process.env.DB
+// const mongoURI = process.env.DB
 
 
 const options = {
