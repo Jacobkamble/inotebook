@@ -46,7 +46,7 @@ app.get("*", (req, res) => {
 //   console.log(`Example app listening on port ${port}`);
 // });
 
-connectDB().then(() => {
+connectToMongo().then(() => {
   app.listen(port, () => {
       console.log("listening for requests",port);
   })
