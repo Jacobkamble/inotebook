@@ -5,6 +5,7 @@ dotenv.config({path:'./config.env'})
 
 // const mongoURI = `mongodb://localhost:27017/notebook?directConnection=true&tls=false&readPreference=primary`;
 
+// DB=mongodb+srv://jacobkamble:Jacob1234@cluster0.1zytsba.mongodb.net/notebook
 const mongoURI=`mongodb+srv://jacobkamble:Jacob1234@cluster0.1zytsba.mongodb.net/notebook`
 
 // ?retryWrites=true&w=majority` 
@@ -26,7 +27,7 @@ const connectToMongo = async () => {
 
   try {
     const con= await mongoose.connect(mongoURI, options);
-    console.log(`MongoDB Connected: ${con}`);
+    console.log(`MongoDB Connected: `);
   } catch (error) {
     console.log(error);
     // process.exit(1);

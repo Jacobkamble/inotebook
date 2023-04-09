@@ -25,11 +25,14 @@ router.post(
     // console.log(req.body);
 
     try {
+      let success=false;
       const error = validationResult(req);
 
       // check wheater error occured or not
       if (!error.isEmpty()) {
+        success=false;
         res.status(400).json({ error: error.array() });
+        
       }
 
       // Check the user with email exist already
@@ -38,6 +41,7 @@ router.post(
       // console.log(user);
 
       if (user) {
+        success=false;
         return res
           .status(400)
           .json({ error: "Sorry user with this email already exist" });
@@ -56,8 +60,9 @@ router.post(
         user: { id: user.id },
       };
       const authtoken = jwt.sign(data, JWT_SEC);
+      success=true;
       //  console.log(jwtData)
-      res.json({ authtoken, data });
+      res.json({ authtoken, data,success });
     } catch (error) {
       res.status(500).send("Some error occured please try again");
     }

@@ -34,7 +34,7 @@ export default function Signup() {
         )
 
         
-      console.log(response)
+      // console.log(response)
       if ( response.data.success) {
         // save the auth token to localstorage and redirect
         // localStorage.setItem("token", json.authtoken);
@@ -44,7 +44,7 @@ export default function Signup() {
       
 
     } catch (error) {
-      showAlert("Please Enter Valid Details...!!!", 'danger');
+      showAlert("Please Enter Valid Details or account has already created...!!!", 'danger');
     }
      
 
