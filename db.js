@@ -22,13 +22,20 @@ const options = {
   family: 4, // Use IPv4, skip trying IPv6
 };
 
-const connectToMongo = () => {
-  mongoose
-    .connect(mongoURI, options)
-    .then((res) => {
-      console.log("Connected to Db");
-    })
-    .catch((er) => console.log(er));
+const connectToMongo = async () => {
+
+  try {
+    const con= await mongoose.connect(mongoURI, options);
+    console.log(`MongoDB Connected: ${con}`);
+  } catch (error) {
+    console.log(error);
+    // process.exit(1);
+  }
+ 
+    // .then((res) => {
+      // console.log("Connected to Db");
+    // })
+    // .catch((er) => console.log(er));
 };
 
 module.exports = connectToMongo;
